@@ -40,9 +40,8 @@ Adicionalmente, se validó la integración del control de la banda transportador
 ---
 
 ## Diagrama de flujo de acciones del robot
-Incluye el diagrama de flujo que represente de forma secuencial las acciones del robot, sus decisiones condicionales y la lógica de control general del sistema.
+<img width="921" height="1234" alt="image" src="https://github.com/user-attachments/assets/5f34e396-ecf9-49e8-816c-abafc9d4057e" />
 
-*(Insertar aquí la imagen o el enlace al diagrama de flujo.)*
 
 ---
 
