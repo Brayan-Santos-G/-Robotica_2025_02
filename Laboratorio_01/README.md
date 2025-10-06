@@ -40,7 +40,7 @@ Adicionalmente, se validó la integración del control de la banda transportador
 ---
 
 ## Diagrama de flujo de acciones del robot
-<img width="921" height="1234" alt="image" src="https://github.com/user-attachments/assets/5f34e396-ecf9-49e8-816c-abafc9d4057e" />
+<img width="500" height="700" alt="image" src="https://github.com/user-attachments/assets/5f34e396-ecf9-49e8-816c-abafc9d4057e" />
 
 
 ---
