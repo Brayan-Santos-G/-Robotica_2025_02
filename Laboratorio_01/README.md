@@ -87,7 +87,8 @@ Para un análisis más detallado de las dimensiones y configuraciones de montaje
 ---
 
 ## Código en RAPID del módulo utilizado para el desarrollo de la práctica
-Presenta el código fuente o los fragmentos más relevantes utilizados en RobotStudio, con comentarios explicativos.
+Para acceder al código fuente desarrollado en RAPID, se puede consultar la información disponible en la carpeta de [códigos](https://github.com/Brayan-Santos-G/-Robotica_2025_02/blob/main/Laboratorio_01/Codigos/C%C3%B3digo%20RAPID%20LAB%201)
+
 
 
 
