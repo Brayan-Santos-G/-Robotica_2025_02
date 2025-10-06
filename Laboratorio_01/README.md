@@ -59,7 +59,15 @@ En la vista de planta se presenta la estación de trabajo utilizada para la simu
 ---
 
 ## Descripción de las funciones utilizadas
-Detalla las funciones utilizadas en el código RAPID, indicando el propósito de cada una, sus parámetros de entrada/salida y cómo contribuyen al flujo general del programa.
+En el archivo principal del código, donde se escribe todo el programa a ejecutarse, contamos con un bucle `WHILE TRUE DO`, el cual permite que la simulación se mantenga en ejecución continuamente, aunque físicamente no tiene relevancia en el funcionamiento real del robot.
+
+A continuación, se utiliza una estructura condicional `IF <EXP> THEN`, que sirve para ejecutar un bloque de código cuando se detecta una entrada digital positiva, en este caso, la pulsación de un botón—.
+
+Dentro de esta condición, se emplean las funciones `SET` y `RESET` para asignar valores a las salidas digitales: `SET` establece el valor `1` (activando elementos como la banda transportadora o los LED), mientras que `RESET` asigna el valor `0` (desactivándolos). También se usa la función `WaitTime`, que permite generar un retardo durante un tiempo determinado.
+
+Posteriormente, se llaman las diferentes trayectorias definidas por los puntos declarados más abajo en el código. En nuestro caso, decidimos crear una trayectoria por cada letra o figura, además de trayectorias específicas para enviar al robot a la posición de `Home` o al punto de mantenimiento, las cuales se ejecutan mediante los dos botones restantes.
+
+Para la definición de trayectorias se utilizan las instrucciones `MoveJ` para movimientos articulares del robot y `MoveL` para movimientos lineales. Asimismo, se emplea `MoveC` para describir trayectorias curvas mediante dos puntos intermedios adicionales al punto final, siempre que los ángulos involucrados no superen los `180°`.
 
 ---
 
