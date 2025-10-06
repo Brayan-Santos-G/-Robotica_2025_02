@@ -1,4 +1,7 @@
 # Laboratorio_01
+* Sergio Avellaneda Piñeros
+* David SAntiago Cuellar Lopez
+* Brayan Yesid Santos Gonzalez
 
 ## Descripción detallada de la solución planteada
 Explica de manera completa el problema abordado, los objetivos del laboratorio y la propuesta de solución. Describe el proceso de análisis, las decisiones de diseño, y los criterios técnicos empleados para resolver la tarea planteada.
