@@ -37,14 +37,7 @@ Describe el diseño mecánico o conceptual de la herramienta utilizada (por ejem
 ## Código en RAPID del módulo utilizado para el desarrollo de la práctica
 Presenta el código fuente o los fragmentos más relevantes utilizados en RobotStudio, con comentarios explicativos.
 
-```rapid
-! Ejemplo de estructura RAPID
-MODULE Laboratorio01
-  PROC main()
-    MoveJ pHome, v100, z10, tool0;
-    ! Instrucciones principales del ciclo
-  ENDPROC
-ENDMODULE
+
 
 ## Video de simulación e implementación
 ra un mayor detalle de lo realizado, se puede ver el video de la implementación tanto simulada como física aqui[https://youtu.be/I9g8OmUdVok]
