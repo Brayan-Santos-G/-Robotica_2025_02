@@ -51,7 +51,8 @@ Adicionalmente, se validó la integración del control de la banda transportador
 ## Plano de planta de la ubicación de cada uno de los elementos
 Presenta el plano de planta indicando la posición del robot, las piezas, sensores, estaciones de trabajo y demás componentes del entorno de simulación o práctica.
 
-*(Agregar esquema o imagen con leyenda.)*
+![WhatsApp Image 2025-10-05 at 11 14 33 PM](https://github.com/user-attachments/assets/74a16373-58af-442c-9fd3-8306b9103426)
+
 
 ---
 
