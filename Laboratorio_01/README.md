@@ -7,9 +7,9 @@
 La práctica se desarrolló con el objetivo de simular un proceso de decoración de torta virtual mediante el robot industrial ABB IRB 140, programado en el entorno de RobotStudio y utilizando el lenguaje de programación RAPID. El proyecto consistió en programar trayectorias que permitieran escribir los nombres de los tres integrantes del grupo: David, Brayan y Sergio, además de una figura decorativa en forma de estrella de 5 puntas. Adicionalmente, se incorporó el control de una banda transportadora, que se activa automáticamente al finalizar la decoración para trasladar la torta al siguiente proceso. Para llevar a cabo esta solución se realizaron los siguientes pasos:
 
 ### 1.	Parámetros aplicados:
-•	Velocidades entre 100 y 1000 mm/s.
-•	Precisión de aproximación en z10.
-•	Movimientos continuos para un trazo fluido y legible.
+* Velocidades entre 100 y 1000 mm/s.
+* Precisión de aproximación en z10.
+* Movimientos continuos para un trazo fluido y legible.
 
 ### 2.	Configuración inicial del sistema
 Se configuró el proyecto en RobotStudio con el controlador IRC5 y el manipulador IRB 140, definiendo una posición de referencia o posición HOME a la cual el robot retorna al inicio y al final de todas las operaciones, garantizando seguridad y repetibilidad en los movimientos.
