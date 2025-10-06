@@ -21,15 +21,16 @@ En RobotStudio se definió el correspondiente Tooldata, calibrando el TCP en la 
 
 ### 4.	Programación de trayectorias
 La lógica del programa se estructuró de la siguiente forma:
-1.	El robot parte desde HOME y se desplaza a un punto inicial cercano al Workobject (ABHome).
-2.	Se escribe el nombre David sobre la superficie de la torta.
-3.	El robot regresa al ABHome y escribe el nombre Brayan.
-4.	Se repite el procedimiento para el nombre Sergio.
-5.	El robot dibuja una estrella de 5 puntas como figura decorativa final.
-6.	Una vez finalizada la decoración, el robot retorna a la posición HOME.
-7.	Se activa una salida digital (DO2) que enciende la banda transportadora, trasladando la torta hasta el extremo de salida.
-8.	Se activa una salida digital (DO3) que traslada al robot a una posición de mantenimiento para poder retirar la herramienta.
-9.	Al concluir el movimiento de la banda, la señal se desactiva automáticamente, quedando el sistema listo para un nuevo ciclo.
+  1.	El robot parte desde HOME y se desplaza a un punto inicial cercano al Workobject (ABHome).
+  2.	Se escribe el nombre David sobre la superficie de la torta.
+  3.	El robot regresa al ABHome y escribe el nombre Brayan.
+  4.	Se repite el procedimiento para el nombre Sergio.
+  5.	El robot dibuja una estrella de 5 puntas como figura decorativa final.
+  6.	Una vez finalizada la decoración, el robot retorna a la posición HOME.
+  7.	Se activa una salida digital (DO2) que enciende la banda transportadora, trasladando la torta hasta el extremo de salida.
+  8.	Se activa una salida digital (DO3) que traslada al robot a una posición de mantenimiento para poder retirar la herramienta.
+  9.	Al concluir el movimiento de la banda, la señal se desactiva automáticamente, quedando el sistema listo para un nuevo ciclo.
+    
 Los movimientos se programaron en RAPID utilizando MoveJ, MoveL, MoveC para los trazos de los nombres y figuras, y SetDO y ResetDO para el control de la señal digital que activa la banda transportadora.
 
 ### 5.	Validación y simulación
