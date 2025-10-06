@@ -64,7 +64,13 @@ Detalla las funciones utilizadas en el código RAPID, indicando el propósito de
 ---
 
 ## Diseño de la herramienta detallado
-Describe el diseño mecánico o conceptual de la herramienta utilizada (por ejemplo: gripper, ventosa, pinza, etc.). Incluye materiales, dimensiones y justificación técnica.
+Para la ejecución del laboratorio fue necesario diseñar una herramienta personalizada que pudiera ser acoplada al robot ABB IRB 140. En el esquema se presenta el despiece del conjunto, donde cada elemento cumple una función específica dentro del sistema.
+
+El componente (3) corresponde al marcador, que actúa como elemento funcional de escritura o decoración. Este se inserta en la pieza (1.2), una tapa roscada fabricada mediante impresión 3D, la cual se acopla al cuerpo principal compuesto por las piezas (1.1) y (1.2). Ambas se imprimieron en 3D y fueron diseñadas por separado para facilitar el proceso de fabricación y el montaje final.
+
+Entre la tapa (2) y el cuerpo (1.2) se incorporó un resorte interno, cuya función es proporcionar tolerancia y amortiguación en la punta del marcador, permitiendo mantener contacto constante con la superficie sin generar exceso de presión.
+
+La parte inferior del conjunto corresponde al chanfle (4), que es la base de acoplamiento al extremo del robot. Esta pieza también fue impresa en 3D y cuenta con orificios para la fijación mediante tornillos M6 (elementos 5), asegurando una unión firme y precisa entre el flanche y el resto de la herramienta.
 
 <img width="551" height="459" alt="image" src="https://github.com/user-attachments/assets/7dec8f9e-13ce-4bc0-88d5-9ee2f21a203f" />
 
