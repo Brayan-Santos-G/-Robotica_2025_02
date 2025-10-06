@@ -61,7 +61,7 @@ En la vista de planta se presenta la estación de trabajo utilizada para la simu
 ## Descripción de las funciones utilizadas
 En el archivo principal del código, donde se escribe todo el programa a ejecutarse, contamos con un bucle `WHILE TRUE DO`, el cual permite que la simulación se mantenga en ejecución continuamente, aunque físicamente no tiene relevancia en el funcionamiento real del robot.
 
-A continuación, se utiliza una estructura condicional `IF <EXP> THEN`, que sirve para ejecutar un bloque de código cuando se detecta una entrada digital positiva, en este caso, la pulsación de un botón—.
+A continuación, se utiliza una estructura condicional `IF <EXP> THEN`, que sirve para ejecutar un bloque de código cuando se detecta una entrada digital positiva, en este caso, la pulsación de un botón.
 
 Dentro de esta condición, se emplean las funciones `SET` y `RESET` para asignar valores a las salidas digitales: `SET` establece el valor `1` (activando elementos como la banda transportadora o los LED), mientras que `RESET` asigna el valor `0` (desactivándolos). También se usa la función `WaitTime`, que permite generar un retardo durante un tiempo determinado.
 
@@ -78,9 +78,10 @@ El componente (3) corresponde al marcador, el cual se inserta en la pieza (1.2).
 
 En la parte inferior del conjunto se encuentra el flanche (4), que constituye la base de acoplamiento al extremo del robot. Esta pieza también fue impresa en 3D y cuenta con orificios de fijación para tornillos M6 de media pulgada (elementos 5), asegurando una unión firme y precisa entre el flanche y el cuerpo de la herramienta.
 
-Para un análisis más detallado de las dimensiones y configuraciones de montaje, se puede consultar la información disponible en la carpeta de planos, donde se incluyen los dibujos técnicos y vistas complementarias del diseño.
+Para un análisis más detallado de las dimensiones y configuraciones de montaje, se puede consultar la información disponible en la carpeta de (planos)[https://github.com/Brayan-Santos-G/-Robotica_2025_02/blob/main/Laboratorio_01/Planos/Planos_Herramienta.pdf], donde se incluyen los dibujos técnicos y vistas complementarias del diseño.
 
-<img width="551" height="459" alt="image" src="https://github.com/user-attachments/assets/7dec8f9e-13ce-4bc0-88d5-9ee2f21a203f" />
+<img width="565" height="669" alt="image" src="https://github.com/user-attachments/assets/9556cc8d-78e1-4fe6-981a-8e0ce1b682c4" />
+
 
 
 ---
