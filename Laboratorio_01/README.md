@@ -80,7 +80,7 @@ En la parte inferior del conjunto se encuentra el flanche (4), que constituye la
 
 Para un análisis más detallado de las dimensiones y configuraciones de montaje, se puede consultar la información disponible en la carpeta de [planos](https://github.com/Brayan-Santos-G/-Robotica_2025_02/blob/main/Laboratorio_01/Planos/Planos_Herramienta.pdf), donde se incluyen los dibujos técnicos y vistas complementarias del diseño.
 
-Se uso una caja de 205*170*128 (mm). como workobject.
+Se uso una caja de 205X170X128 (mm). como workobject.
 
 <img width="551" height="459" alt="image" src="https://github.com/user-attachments/assets/5f770075-69b3-4c4e-a561-6af109882d74" />
 
