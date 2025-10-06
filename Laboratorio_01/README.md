@@ -40,4 +40,5 @@ Presenta el código fuente o los fragmentos más relevantes utilizados en RobotS
 
 
 ## Video de simulación e implementación
-ra un mayor detalle de lo realizado, se puede ver el video de la implementación tanto simulada como física aqui[https://youtu.be/I9g8OmUdVok]
+Para un mayor detalle de lo realizado, se puede ver el video de la implementación tanto simulada como física [aquí](https://youtu.be/l9g8OmUdVok).
+
