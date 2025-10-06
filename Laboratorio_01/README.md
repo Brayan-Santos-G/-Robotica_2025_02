@@ -49,7 +49,9 @@ Adicionalmente, se validó la integración del control de la banda transportador
 ---
 
 ## Plano de planta de la ubicación de cada uno de los elementos
-Presenta el plano de planta indicando la posición del robot, las piezas, sensores, estaciones de trabajo y demás componentes del entorno de simulación o práctica.
+
+En la vista de planta se presenta la estación de trabajo utilizada para la simulación. En la parte central se encuentra el robot ABB IRB 140, encargado de realizar la operación de decoración. Frente al robot se dispone una banda transportadora, que será la utilizada durante la práctica y cuya activación se controla mediante señales digitales de entrada y salida. A un costado se ubica una segunda banda inactiva, utilizada únicamente como referencia espacial dentro del entorno de trabajo. El objeto de operación  la torta a decorar  se posiciona sobre la banda activa, dentro del área de alcance del efector final. Esta disposición garantiza una interacción eficiente entre el sistema de transporte y el robot, optimizando el espacio operativo y evitando interferencias durante el proceso automatizado.
+
 
 ![WhatsApp Image 2025-10-05 at 11 14 33 PM](https://github.com/user-attachments/assets/74a16373-58af-442c-9fd3-8306b9103426)
 
