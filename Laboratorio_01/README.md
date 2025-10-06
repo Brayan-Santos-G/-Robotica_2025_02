@@ -78,7 +78,7 @@ El componente (3) corresponde al marcador, el cual se inserta en la pieza (1.2).
 
 En la parte inferior del conjunto se encuentra el flanche (4), que constituye la base de acoplamiento al extremo del robot. Esta pieza también fue impresa en 3D y cuenta con orificios de fijación para tornillos M6 de media pulgada (elementos 5), asegurando una unión firme y precisa entre el flanche y el cuerpo de la herramienta.
 
-Para un análisis más detallado de las dimensiones y configuraciones de montaje, se puede consultar la información disponible en la carpeta de (planos)[https://github.com/Brayan-Santos-G/-Robotica_2025_02/blob/main/Laboratorio_01/Planos/Planos_Herramienta.pdf], donde se incluyen los dibujos técnicos y vistas complementarias del diseño.
+Para un análisis más detallado de las dimensiones y configuraciones de montaje, se puede consultar la información disponible en la carpeta de [planos](https://github.com/Brayan-Santos-G/-Robotica_2025_02/blob/main/Laboratorio_01/Planos/Planos_Herramienta.pdf), donde se incluyen los dibujos técnicos y vistas complementarias del diseño.
 
 <img width="565" height="669" alt="image" src="https://github.com/user-attachments/assets/9556cc8d-78e1-4fe6-981a-8e0ce1b682c4" />
 
