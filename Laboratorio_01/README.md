@@ -52,8 +52,8 @@ Adicionalmente, se validó la integración del control de la banda transportador
 
 En la vista de planta se presenta la estación de trabajo utilizada para la simulación. En la parte central se encuentra el robot ABB IRB 140, encargado de realizar la operación de decoración. Frente al robot se dispone una banda transportadora, que será la utilizada durante la práctica y cuya activación se controla mediante señales digitales de entrada y salida. A un costado se ubica una segunda banda inactiva, utilizada únicamente como referencia espacial dentro del entorno de trabajo. El objeto de operación  la torta a decorar  se posiciona sobre la banda activa, dentro del área de alcance del efector final. Esta disposición garantiza una interacción eficiente entre el sistema de transporte y el robot, optimizando el espacio operativo y evitando interferencias durante el proceso automatizado.
 
+<img width="563" height="672" alt="image" src="https://github.com/user-attachments/assets/0707dd60-985f-447c-b303-ef6c67dd7d59" />
 
-![WhatsApp Image 2025-10-05 at 11 14 33 PM](https://github.com/user-attachments/assets/74a16373-58af-442c-9fd3-8306b9103426)
 
 
 ---
