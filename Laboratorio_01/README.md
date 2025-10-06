@@ -80,7 +80,8 @@ En la parte inferior del conjunto se encuentra el flanche (4), que constituye la
 
 Para un análisis más detallado de las dimensiones y configuraciones de montaje, se puede consultar la información disponible en la carpeta de [planos](https://github.com/Brayan-Santos-G/-Robotica_2025_02/blob/main/Laboratorio_01/Planos/Planos_Herramienta.pdf), donde se incluyen los dibujos técnicos y vistas complementarias del diseño.
 
-<img width="565" height="669" alt="image" src="https://github.com/user-attachments/assets/9556cc8d-78e1-4fe6-981a-8e0ce1b682c4" />
+<img width="551" height="459" alt="image" src="https://github.com/user-attachments/assets/5f770075-69b3-4c4e-a561-6af109882d74" />
+
 
 
 
