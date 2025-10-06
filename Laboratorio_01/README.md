@@ -30,7 +30,8 @@ Detalla las funciones utilizadas en el código RAPID, indicando el propósito de
 ## Diseño de la herramienta detallado
 Describe el diseño mecánico o conceptual de la herramienta utilizada (por ejemplo: gripper, ventosa, pinza, etc.). Incluye materiales, dimensiones y justificación técnica.
 
-*(Se pueden añadir renders, bocetos o esquemas técnicos.)*
+<img width="551" height="459" alt="image" src="https://github.com/user-attachments/assets/7dec8f9e-13ce-4bc0-88d5-9ee2f21a203f" />
+
 
 ---
 
