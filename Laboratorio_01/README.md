@@ -1,6 +1,6 @@
 # Laboratorio_01
 * Sergio Avellaneda Piñeros
-* David SAntiago Cuellar Lopez
+* David Santiago Cuellar Lopez
 * Brayan Yesid Santos Gonzalez
 
 ## Descripción detallada de la solución planteada
@@ -13,10 +13,12 @@ La práctica se desarrolló con el objetivo de simular un proceso de decoración
 
 ### 2.	Configuración inicial del sistema
 Se configuró el proyecto en RobotStudio con el controlador IRC5 y el manipulador IRB 140, definiendo una posición de referencia o posición HOME a la cual el robot retorna al inicio y al final de todas las operaciones, garantizando seguridad y repetibilidad en los movimientos.
+  
 Se creó un Workobject con dimensiones de 20.5 cm de ancho, 17 cm de largo y 12.8 cm de alto, ubicado sobre una mesa de trabajo frente al robot. Este objeto permitió definir un sistema de coordenadas local desde el cual se programaron las trayectorias de escritura y la figura decorativa.
 
 ### 3.	Herramienta utilizada
-Se diseñó una herramienta de sujeción de marcador para acoplarse al flange del robot con algunas características principales; soporte cilíndrico para alojar un marcador tipo plumón, tapa roscada que asegura el marcador en su posición, evitando desplazamientos durante los movimientos, base adaptadora con el patrón de agujeros estándar del flange del IRB 140. Cabe resaltar en este diseño se tuvo en cuenta la tolerancia de la herramienta para que no se fuera a dañar, por lo cual se le coloco un resorte interno
+Se diseñó una herramienta de sujeción de marcador para acoplarse al flange del robot con algunas características principales; soporte cilíndrico para alojar un marcador tipo plumón, tapa roscada que asegura el marcador en su posición, evitando desplazamientos durante los movimientos, base adaptadora con el patrón de agujeros estándar del flange del IRB 140. Cabe resaltar en este diseño se tuvo en cuenta la tolerancia de la herramienta para que no se fuera a dañar, por lo cual se le coloco un resorte interno.
+
 En RobotStudio se definió el correspondiente Tooldata, calibrando el TCP en la punta del marcador, lo que permitió realizar trazos precisos sobre la superficie de la torta virtual.
 
 ### 4.	Programación de trayectorias
@@ -35,6 +37,7 @@ Los movimientos se programaron en RAPID utilizando MoveJ, MoveL, MoveC para los 
 
 ### 5.	Validación y simulación
 El proceso de validación se llevó a cabo en RobotStudio con el fin de comprobar la correcta ejecución de todas las rutinas programadas. Durante la simulación se verificó que las trayectorias generadas para los nombres y la figura decorativa coincidieran con las dimensiones establecidas en el Workobject y que el trazo realizado por el TCP del marcador fuese preciso y continuo. Se confirmó también que la ubicación del Workobject y la calibración de la herramienta permitieran que el marcador se desplazara sobre la superficie sin generar interferencias ni desviaciones.
+
 Adicionalmente, se validó la integración del control de la banda transportadora mediante una salida digital, asegurando que esta se activara automáticamente al finalizar la decoración y se desactivara al completar el traslado de la torta. Por último, se comprobó que el robot regresara de manera segura a la posición HOME al finalizar el ciclo, garantizando que no existieran colisiones con otros elementos del entorno y dejando el sistema en condiciones de reiniciar un nuevo proceso de forma ordenada y confiable.
 
 ---
