@@ -64,13 +64,13 @@ Detalla las funciones utilizadas en el código RAPID, indicando el propósito de
 ---
 
 ## Diseño de la herramienta detallado
-Para la ejecución del laboratorio fue necesario diseñar una herramienta personalizada que pudiera ser acoplada al robot ABB IRB 140. En el esquema se presenta el despiece del conjunto, donde cada elemento cumple una función específica dentro del sistema.
+Para la ejecución del laboratorio fue necesario diseñar una herramienta personalizada que pudiera ser acoplada al robot ABB IRB 140. En el esquema se muestra el despiece del conjunto, donde cada elemento cumple una función específica dentro del sistema.
 
-El componente (3) corresponde al marcador, que actúa como elemento funcional de escritura o decoración. Este se inserta en la pieza (1.2), una tapa roscada fabricada mediante impresión 3D, la cual se acopla al cuerpo principal compuesto por las piezas (1.1) y (1.2). Ambas se imprimieron en 3D y fueron diseñadas por separado para facilitar el proceso de fabricación y el montaje final.
+El componente (3) corresponde al marcador, el cual se inserta en la pieza (1.2). Esta parte forma el cuerpo principal de la herramienta y fue fabricada mediante impresión 3D, junto con las piezas (1.1) y (2). La pieza (2) corresponde a una tapa roscada, diseñada para sujetar el marcador y alojar un resorte interno que proporciona tolerancia y amortiguación a la punta, permitiendo mantener un contacto constante con la superficie sin ejercer presión excesiva.
 
-Entre la tapa (2) y el cuerpo (1.2) se incorporó un resorte interno, cuya función es proporcionar tolerancia y amortiguación en la punta del marcador, permitiendo mantener contacto constante con la superficie sin generar exceso de presión.
+En la parte inferior del conjunto se encuentra el flanche (4), que constituye la base de acoplamiento al extremo del robot. Esta pieza también fue impresa en 3D y cuenta con orificios de fijación para tornillos M6 de media pulgada (elementos 5), asegurando una unión firme y precisa entre el flanche y el cuerpo de la herramienta.
 
-La parte inferior del conjunto corresponde al chanfle (4), que es la base de acoplamiento al extremo del robot. Esta pieza también fue impresa en 3D y cuenta con orificios para la fijación mediante tornillos M6 (elementos 5), asegurando una unión firme y precisa entre el flanche y el resto de la herramienta.
+Para un análisis más detallado de las dimensiones y configuraciones de montaje, se puede consultar la información disponible en la carpeta de planos, donde se incluyen los dibujos técnicos y vistas complementarias del diseño.
 
 <img width="551" height="459" alt="image" src="https://github.com/user-attachments/assets/7dec8f9e-13ce-4bc0-88d5-9ee2f21a203f" />
 
