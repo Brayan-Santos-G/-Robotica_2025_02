@@ -94,9 +94,10 @@ RoboDK es un software de simulación y programación offline/online para robots 
 
 ## Diagrama de flujo
 
+## Plano de planta de la ubicación de cada uno de los elementos
+En la planta de trabajo tenemos el robot Motoman MH6 montado en su base, que es la referencia fija desde la cual el robot se mueve. Frente al robot está el workobject, que corresponde a la superficie donde se hacen las trayectorias del laboratorio. En el extremo del brazo del robot está instalada una herramienta con ventosas. Esa herramienta es la misma que tiene el robot físico del laboratorio y se incluye también en la simulación para que el modelo virtual coincida con el montaje real. Sin embargo, las ventosas no cumplen ninguna función dentro del desarrollo del laboratorio (no se usan para agarrar ni mover piezas); están ahí únicamente para mantener la misma configuración física y virtual.
 
-## Planos
-
+<img width="721" height="559" alt="image" src="https://github.com/user-attachments/assets/68e4c01e-c3c6-4a51-a8f7-8a9e9be17299" />
 
 ## Código en Python
 ### Descripción del script de dibujo (cardioide y nombres)
