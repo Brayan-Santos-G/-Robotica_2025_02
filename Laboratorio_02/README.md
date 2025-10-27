@@ -11,6 +11,15 @@
 
 ## Movimientos manuales
 
+El manipulador Motoman MH6 puede operarse manualmente mediante el teach pendant (programador de mano). Este dispositivo permite mover el robot de forma controlada para posicionarlo, programar trayectorias o verificar zonas de trabajo.
+Los movimientos manuales pueden realizarse en dos modos principales: modo articular (Joint) y modo cartesiano (Base o Tool).
+
+### 1. Activación del modo manual
+
+1. 	En el teach pendant, seleccionar el modo “Teach” o “Manual”. Esto se realiza girando el selector de modo en el panel de control del robot.
+2.	Confirmar que el interruptor de habilitación (Enable) esté presionado para permitir el movimiento.
+3.	En la pantalla del teach pendant debe mostrarse el icono o texto “TEACH”, indicando que el robot está en modo manual.
+
 
 ## Niveles de velocidad
 
