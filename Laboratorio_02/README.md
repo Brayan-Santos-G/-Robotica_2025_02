@@ -3,7 +3,20 @@
 * David Santiago Cuellar Lopez
 * Brayan Yesid Santos Gonzalez
 
-## Descripción de las principales funcionalidades de RoboDK
+## Cuadro comparativo
+
+
+## Configuraciones (home1, home2)
+
+
+## Movimientos manuales
+
+
+## Niveles de velocidad
+
+
+
+## Principales funcionalidades de RoboDK
 
 RoboDK es un software de simulación y programación offline/online para robots industriales. Permite crear, validar y transferir trayectorias de robot sin depender exclusivamente de la enseñanza punto a punto en el controlador físico.
 
@@ -74,6 +87,16 @@ RoboDK es un software de simulación y programación offline/online para robots 
 - HSE documentado para **DX100, DX200, FS100, NX100 y YR/YRC1000**.  
 - Si el controlador no soporta HSE (p. ej., XRC), usar **RS232** o **MotoCom**.
 - Varios controladores Yaskawa incluyen **servidor FTP** para transferencia de archivos de programa (`.JBI`) y respaldos por red.
+
+
+## RoboDK vs RobotStudio
+
+
+## Diagrama de flujo
+
+
+## Planos
+
 
 ## Código en Python
 ### Descripción del script de dibujo (cardioide y nombres)
