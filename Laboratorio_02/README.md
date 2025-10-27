@@ -3,10 +3,41 @@
 * David Santiago Cuellar Lopez
 * Brayan Yesid Santos Gonzalez
 
-## Cuadro comparativo
+## Cuadro comparativo Motoman MH6 vs ABB IRB 140
+
+| **Motoman MH6** | **ABB IRB 140** |
+|-----------------|-----------------|
+| <ul><li>Ofrece una carga de 6 kg.</li><li>Un alcance máximo de 1422 mm.</li><li>Tiene 6 grados de libertad + 2 agregados.</li><li>Velocidades en los ejes:<ul><li>Eje 1 (S): 220 °/s</li><li>Eje 2 (L): 200 °/s</li><li>Eje 3 (U): 220 °/s</li><li>Eje 4 (R): 410 °/s</li><li>Eje 5 (B): 410 °/s</li><li>Eje 6 (T): 610 °/s</li><li>Eje 7 y 8: desconocidas.</li></ul></li><li>Peso del manipulador: 130 kg.</li><li>Repetibilidad de 0.08 mm.</li><li>Se usa comúnmente en manipulación de materiales, corte / desbaste, manipulación en celdas compactas.</li></ul> | <ul><li>Ofrece una carga de 6 kg.</li><li>Un alcance máximo de 810 mm.</li><li>Tiene 6 grados de libertad.</li><li>Velocidades de los ejes:<ul><li>Eje 1: 200 °/s</li><li>Eje 2: 200 °/s</li><li>Eje 3: 260 °/s</li><li>Eje 4: 360 °/s</li><li>Eje 5: 360 °/s</li><li>Eje 6: 450 °/s</li></ul></li><li>Peso del manipulador: 98 kg.</li><li>Repetibilidad de 0.03 mm.</li><li>Se usa comúnmente en manipulación de materiales, tendedora de máquina, ensamblaje, soldadura por arco, limpieza/pulido, pick & place en alta velocidad.</li></ul> |
+
+Ambos robots están diseñados para manipular cargas ligeras de hasta 6 kg. El MH6 ofrece un alcance horizontal significativamente mayor para esa misma carga (≈1422 mm), mientras que el IRB 140 llega a ~810 mm. Esto implica que el MH6 puede cubrir un área de trabajo más amplia sin necesidad de desplazar la base, lo cual es útil para atender varias estaciones alrededor de la celda manteniendo una configuración relativamente compacta. En el laboratorio, el MH6 disponible está montado sobre un riel lineal y además controla un eje externo que permite rotar la pieza, lo que en la práctica le añade 2 grados de libertad externos y amplía aún más su volumen de trabajo. En contraste, el IRB 140 instalado en el laboratorio está fijo en su pedestal y no cuenta con ejes externos, pero ofrece una mayor repetibilidad, lo que lo hace más adecuado para tareas de precisión y alimentación de máquina en un espacio reducido.
+
 
 
 ## Configuraciones (home1, home2)
+En Yaskawa/Motoman existen varios conceptos de “home”:
+
+- **Home Position**: es la posición de referencia mecánica del robot (referencia de encoders). Sirve para calibración y sincronización interna del controlador. No se usa como posición de trabajo normal y no se modifica manualmente.
+
+- **Second Home Position** y **Work Home Position**: son posiciones enseñadas por el usuario para operación y recuperación. En el laboratorio trabajamos con estas dos últimas.
+
+### WORK HOME POSITION (parqueo / espera)
+Es la postura de parqueo seguro en la que normalmente encontramos el robot al iniciar o al terminar una práctica. Es una postura “recogida”, con los eslabones que producen movimiento vertical relativamente horizontales para reducir la altura total del brazo, minimizar el riesgo de choques, facilitar cubrir el robot o moverse alrededor de él cuando está apagado.
+
+Esta posición se usa básicamente como posición de almacenamiento del robot, ya que en el laboratorio el MH6 es de uso educativo y no está en producción continua.
+
+
+<img width="453" height="1024" alt="image" src="https://github.com/user-attachments/assets/b17174f8-694e-4ce7-ad70-6caae6721480" />
+
+<img width="1024" height="453" alt="image" src="https://github.com/user-attachments/assets/6987e593-f718-4296-a0ff-92119d99a325" />
+
+### SECOND HOME POS (posición operativa)
+Es la postura operativa de partida para ejecutar programas como se observa en RoboDK. Aquí, típicamente, J2 está cercano a la vertical y la herramienta mira hacia abajo, dejando la mayoría de articulaciones en rango medio. Eso da margen simétrico para moverse sin topar límites, mejor calidad de trayectoria (evita saturación en ejes), repetibilidad al iniciar ciclos desde una pose estándar.
+
+<img width="453" height="1024" alt="image" src="https://github.com/user-attachments/assets/28efa952-29b1-4b79-acc5-8f990f83fd80" />
+
+<img width="1024" height="453" alt="image" src="https://github.com/user-attachments/assets/2003b1ea-8b48-4b97-b3f8-0346352be336" />
+
+Finalmente, cada posición cumple una función distinta. La WORK HOME POSITION sirve como postura de resguardo: como el robot en el laboratorio es principalmente educativo y no está en operación continua, esta posición es adecuada para almacenarlo de forma compacta, protegerlo físicamente y permitir manipularlo con seguridad cuando está detenido. En cambio, la SECOND HOME POS se utiliza como postura inicial de trabajo porque deja las articulaciones en una zona intermedia de su recorrido, lo que mejora la repetibilidad y la consistencia al iniciar ciclos de operación. No hay una mejor que la otra.
 
 
 ## Movimientos manuales
@@ -90,6 +121,23 @@ RoboDK es un software de simulación y programación offline/online para robots 
 
 
 ## RoboDK vs RobotStudio
+Para comparar RoboDK y RobotStudio, primero es importante entender qué hace cada software.
+
+RoboDK es un entorno de simulación y programación offline compatible con robots de prácticamente todas las marcas grandes. Incluye una librería muy amplia de modelos de robots y postprocesadores capaces de generar código listo para ejecutarse en el controlador de cada fabricante. Su filosofía de uso es: programar y simular en el computador, generar el código, y llevarlo al robot sin necesidad de enseñarle punto por punto de forma manual en la celda real. Esto reduce tiempos de parada y evita ocupar un robot de producción para tareas de programación.
+
+RoboDK también permite trabajar con ejes externos, como rieles lineales y posicionadores rotativos, dentro de la misma estación virtual. Esto es especialmente útil en escenarios como el del MH6 montado sobre un riel con un posicionador externo, ya que el software puede simular esa celda extendida y generar trayectorias que ya consideran esos grados de libertad adicionales.
+
+Una ventaja importante de RoboDK es que es multimarca: puedes cargar robots Yaskawa/Motoman, ABB, KUKA, FANUC, etc., y postprocesar la misma trayectoria al lenguaje nativo de cada uno. Además, expone una API (por ejemplo en Python) que permite automatizar la generación de rutas, hacer calibraciones, crear bucles, o incluso enviar movimientos al robot en vivo desde un script propio, sin necesidad de escribir directamente RAPID (ABB), INFORM (Yaskawa), etc. En la práctica, esto te permite construir tu propio “driver” en Python y luego exportar el resultado como código nativo del robot.
+
+Otra ventaja es que RoboDK es relativamente accesible como producto comercial y corre en Windows, macOS y Linux, lo que lo hace más flexible para entornos académicos o de laboratorio.
+
+Sus limitaciones están en la fidelidad con el controlador real. RoboDK simula la cinemática y genera el código, pero no ejecuta una réplica exacta del firmware de cada marca. Eso significa que detalles como aceleraciones reales, frenado seguro, gestión de paradas de emergencia, límites internos, configuraciones específicas de I/O del controlador, etc., deben verificarse después directamente en el robot físico. Aunque soporta ejes externos y genera el código correspondiente, la sincronización fina de múltiples ejes reales puede requerir ajustes manuales o un driver específico según el fabricante. Tampoco está orientado al comisionamiento eléctrico completo del controlador industrial; esa parte sigue ocurriendo en el teach pendant del robot real.
+
+RobotStudio, por su parte, es el entorno oficial de ABB. Su diferencia principal es que utiliza el “Virtual Controller”, que es esencialmente el mismo software que corre dentro del controlador físico de ABB, pero ejecutado en el PC. Esto permite simular trayectorias, configuraciones de I/O, datos de herramienta y de workobject, y lógica en RAPID con un comportamiento muy cercano al del robot real. RobotStudio no se limita a planear trayectorias: también está pensado para configurar, depurar, hacer comisionamiento virtual, entrenar operadores con un FlexPendant virtual y luego transferir directamente el programa al robot ABB (por ejemplo, un IRB 140).
+
+Esta fidelidad tiene una consecuencia práctica: lo que se valida en RobotStudio suele trasladarse al robot físico con muy pocos cambios. Es posible cargar archivos de sistema, ajustar señales, verificar safety stops lógicos, y después descargar esa misma configuración al controlador real. ABB además ofrece PowerPacs y extensiones específicas orientadas a procesos concretos (soldadura, paletizado, etc.), con asistentes y plantillas que reducen el tiempo de ingeniería cuando se trabaja en aplicaciones estándar de ABB.
+
+Las limitaciones de RobotStudio están relacionadas con su enfoque de marca. Está diseñado para robots ABB y para el lenguaje RAPID; si se desea programar un robot Yaskawa, KUKA o FANUC, RobotStudio deja de ser la herramienta adecuada. Adicionalmente, algunas de las funciones avanzadas (simulación completa, análisis, ciertos módulos especializados) requieren licencias pagas, lo que puede ser una barrera si se pretende usar todas las capacidades en múltiples estaciones de trabajo dentro de un laboratorio. En cuanto a automatización externa, RobotStudio ofrece SDKs y APIs, pero están más orientadas al ecosistema ABB y a entornos tipo Visual Studio, y no son tan abiertas/multimarca como la API genérica de RoboDK.
 
 
 ## Diagrama de flujo
