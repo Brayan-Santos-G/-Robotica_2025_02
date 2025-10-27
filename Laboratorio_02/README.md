@@ -167,6 +167,10 @@ Las limitaciones de RobotStudio están relacionadas con su enfoque de marca. Est
 
 ## Diagrama de flujo
 
+<img width="750" height="982" alt="Diagrama Acciones del robot (1)" src="https://github.com/user-attachments/assets/ae2c7508-7fc5-4cf9-a4f6-298ebe94a8fe" />
+
+
+
 ## Plano de planta de la ubicación de cada uno de los elementos
 En la planta de trabajo tenemos el robot Motoman MH6 montado en su base, que es la referencia fija desde la cual el robot se mueve. Frente al robot está el workobject, que corresponde a la superficie donde se hacen las trayectorias del laboratorio. En el extremo del brazo del robot está instalada una herramienta con ventosas. Esa herramienta es la misma que tiene el robot físico del laboratorio y se incluye también en la simulación para que el modelo virtual coincida con el montaje real. Sin embargo, las ventosas no cumplen ninguna función dentro del desarrollo del laboratorio (no se usan para agarrar ni mover piezas); están ahí únicamente para mantener la misma configuración física y virtual.
 
