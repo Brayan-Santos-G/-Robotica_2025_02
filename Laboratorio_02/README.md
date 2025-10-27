@@ -118,6 +118,6 @@ El mismo script puede ejecutarse en simulación o, si se habilita la conexión r
 
 Para este apartado se puede encontrar el código utilizado en la carpeta *"Códigos"*.
 
-## Video explicativo
+## Video de simulación e implementación
 Para un mayor detalle de lo realizado, se puede ver el video de la simulación [aquí](https://www.youtube.com/watch?v=jPIcGKx4hjY) y el de la implementación física [aquí](https://www.youtube.com/watch?v=a09duI1kMos).
 
