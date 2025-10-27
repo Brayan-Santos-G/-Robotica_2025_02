@@ -44,9 +44,7 @@ RoboDK es un software de simulación y programación offline/online para robots 
 
 # Comunicación con el Manipulador Motoman
 
-Resumen de integración con robots Yaskawa/Motoman (controladores XRC→…, DX100, DX200, FS100, NX100, YR/YRC1000).
-
-## Métodos de comunicación soportados (conservador)
+## Métodos de comunicación
 - **Driver MotomanHSE (High-Speed Ethernet Server / “Remote”)**  
   Driver de RoboDK que utiliza el protocolo HSE soportado por controladores Yaskawa recientes. Permite mover y monitorear el robot desde RoboDK por Ethernet estándar (TCP/IP-UDP). Requiere poner el teach pendant en modo **REMOTE**. (RoboDK documenta un refresco de ~70 Hz).
 - **RS232 (controladores antiguos)**  
