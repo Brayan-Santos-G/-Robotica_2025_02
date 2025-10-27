@@ -75,6 +75,24 @@ RoboDK es un software de simulación y programación offline/online para robots 
 - Si el controlador no soporta HSE (p. ej., XRC), usar **RS232** o **MotoCom**.
 - Varios controladores Yaskawa incluyen **servidor FTP** para transferencia de archivos de programa (`.JBI`) y respaldos por red.
 
+## Código en Python
+### Descripción del script de dibujo (cardioide y nombres)
+
+El script en Python se conecta a RoboDK mediante la API, permite seleccionar el robot que se va a utilizar y trabaja dentro de un frame de referencia ya definido en la estación virtual. Una vez configurado el frame, la velocidad y una altura segura de trabajo, el programa genera dos trayectorias:
+
+1. Dibujo de una cardioide:  
+   - Se calcula una curva cardioide usando la ecuación polar r = 1 + cos(θ).  
+   - Esa curva se convierte a coordenadas cartesianas (x, y) y se recorre punto a punto con movimientos lineales (`MoveL`) en un plano constante (z_surface).  
+   - Esto simula que el TCP del robot “dibuja” la figura en la superficie.
+
+2. Escritura de los nombres del equipo:  
+   - Se usa `matplotlib` para convertir el texto (por ejemplo "DAVID BRAYAN SERGIO") en una nube de vértices 2D.  
+   - El robot sigue esos vértices secuencialmente, trazando el contorno de las letras también mediante movimientos lineales en el mismo plano de trabajo.
+
+Al finalizar cada trazo, el robot se eleva a una altura segura antes de desplazarse, para evitar colisiones con la mesa.  
+El mismo script puede ejecutarse en simulación o, si se habilita la conexión remota, directamente sobre el robot físico.
+
+Para este apartado se puede encontrar el código utilizado en la carpeta *"Códigos"*.
 
 
 Para un mayor detalle de lo realizado, se puede ver el video de la simulación [aquí](https://www.youtube.com/watch?v=jPIcGKx4hjY) y el de la implementación física [aquí](https://www.youtube.com/watch?v=a09duI1kMos).
