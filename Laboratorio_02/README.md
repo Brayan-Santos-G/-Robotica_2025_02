@@ -34,6 +34,9 @@ Durante este proceso, es recomendable realizar movimientos lentos y controlados,
 
 ## Niveles de velocidad
 
+En el teach pendant del Motoman MH6 los niveles de velocidad manual son mediante tres botones físicos claramente etiquetados: HIGH SPEED, FAST y SLOW. Cada uno corresponde a una categoría predefinida de velocidad que se aplica inmediatamente al movimiento manual cuando se pulsa. Para cambiar la velocidad durante la operación solo es necesario seleccionar el botón correspondiente; el cambio entra en efecto de forma instantánea y regula la rapidez de los desplazamientos realizados con el enable switch.
+
+En la pantalla del teach pendant aparece el indicativo del nivel activo, por lo general mostrando el nombre del nivel (por ejemplo “HIGH SPEED” o “SLOW”) o un icono/etiqueta cercana al campo SPEED. Esto permite verificar visualmente qué nivel está seleccionado antes de ejecutar movimientos. Por seguridad y precisión, durante tareas de enseñanza, aproximaciones o trabajo en zonas con obstáculos se recomienda utilizar SLOW; FAST es apropiado para desplazamientos de ajuste y verificación; HIGH SPEED solo debe emplearse cuando el entorno es seguro y se requiere un desplazamiento rápido y amplio.
 
 
 ## Principales funcionalidades de RoboDK
