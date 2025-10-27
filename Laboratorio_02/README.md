@@ -42,9 +42,32 @@ Finalmente, cada posición cumple una función distinta. La WORK HOME POSITION s
 
 ## Movimientos manuales
 
+El manipulador Motoman MH6 puede operarse manualmente mediante el teach pendant (programador de mano). Este dispositivo permite mover el robot de forma controlada para posicionarlo, programar trayectorias o verificar zonas de trabajo.
+Los movimientos manuales pueden realizarse en dos modos principales: modo articular (Joint) y modo cartesiano (Base o Tool).
+
+### 1. Activación del modo manual
+
+1. 	En el teach pendant, seleccionar el modo “Teach” o “Manual”. Esto se realiza girando el selector de modo en el panel de control del robot.
+2.	Confirmar que el interruptor de habilitación (Enable) esté presionado para permitir el movimiento.
+3.	En la pantalla del teach pendant debe mostrarse el icono o texto “TEACH”, indicando que el robot está en modo manual.
+
+### 2. Cambio entre modos de operación
+
+El robot puede operarse de dos formas principales: modo articular (Joint) y modo cartesiano (Base o Tool).
+En el modo articular, cada articulación del robot se controla de forma independiente. El operador puede mover los ejes J1 a J8 utilizando las teclas correspondientes en el teach pendant, realizando giros positivos o negativos en cada uno. Este modo resulta útil para ubicar al robot en posiciones generales, ajustar su postura o verificar la libertad de movimiento sin preocuparse por la orientación del efector final.
+Por otro lado, el modo cartesiano permite desplazar el efector final del robot con respecto a los ejes del sistema de coordenadas. Este modo se selecciona accediendo al menú “COORD” del teach pendant, donde se puede elegir entre el sistema Base (WORLD), que utiliza el marco de referencia fijo del robot, o el sistema Tool (TCP), que toma como referencia el punto central de la herramienta instalada. En pantalla se indica el sistema de coordenadas activo, lo que facilita la verificación antes de ejecutar un movimiento.
+
+### 3. Realización de traslaciones y rotaciones
+
+Una vez seleccionado el modo cartesiano, el operador puede realizar traslaciones y rotaciones en los distintos ejes del espacio. Las traslaciones corresponden a desplazamientos lineales del efector final en las direcciones X, Y y Z, mientras que las rotaciones modifican la orientación de la herramienta alrededor de los ejes Rx, Ry y Rz. Estas operaciones se realizan mediante las teclas direccionales del teach pendant, siempre manteniendo presionado el interruptor de habilitación para garantizar la seguridad del movimiento.
+Durante este proceso, es recomendable realizar movimientos lentos y controlados, especialmente al trabajar en zonas de proximidad o calibración. Si en algún momento se suelta o se presiona completamente el interruptor de habilitación, el robot se detendrá de inmediato, evitando colisiones o daños.
+
 
 ## Niveles de velocidad
 
+En el teach pendant del Motoman MH6 los niveles de velocidad manual son mediante tres botones físicos claramente etiquetados: HIGH SPEED, FAST y SLOW. Cada uno corresponde a una categoría predefinida de velocidad que se aplica inmediatamente al movimiento manual cuando se pulsa. Para cambiar la velocidad durante la operación solo es necesario seleccionar el botón correspondiente; el cambio entra en efecto de forma instantánea y regula la rapidez de los desplazamientos realizados con el enable switch.
+
+En la pantalla del teach pendant aparece el indicativo del nivel activo, por lo general mostrando el nombre del nivel (por ejemplo “HIGH SPEED” o “SLOW”) o un icono/etiqueta cercana al campo SPEED. Esto permite verificar visualmente qué nivel está seleccionado antes de ejecutar movimientos. Por seguridad y precisión, durante tareas de enseñanza, aproximaciones o trabajo en zonas con obstáculos se recomienda utilizar SLOW; FAST es apropiado para desplazamientos de ajuste y verificación; HIGH SPEED solo debe emplearse cuando el entorno es seguro y se requiere un desplazamiento rápido y amplio.
 
 
 ## Principales funcionalidades de RoboDK
