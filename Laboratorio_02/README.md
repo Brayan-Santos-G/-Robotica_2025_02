@@ -167,7 +167,8 @@ Las limitaciones de RobotStudio están relacionadas con su enfoque de marca. Est
 
 ## Diagrama de flujo
 
-<img width="750" height="982" alt="Diagrama Acciones del robot (1)" src="https://github.com/user-attachments/assets/ae2c7508-7fc5-4cf9-a4f6-298ebe94a8fe" />
+<img width="760" height="982" alt="Diagrama Acciones del robot (lab2)" src="https://github.com/user-attachments/assets/73673eeb-a4d8-41f4-8671-2cc580b952fb" />
+
 
 
 
