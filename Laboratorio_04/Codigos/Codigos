@@ -1,3 +1,4 @@
+```python
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
@@ -11,22 +12,51 @@ import threading
 import time
 import math
 
+"""
+Nodo de ROS 2 para controlar la tortuga de turtlesim desde el teclado.
+Permite dibujar letras específicas (S, A, P, B, Y, G, D, C, L) usando únicamente
+velocidad lineal y angular. Después de cada letra, la tortuga vuelve al punto
+inicial mediante el servicio de teleport.
+"""
+
 class TurtleController(Node):
+    """Nodo principal que publica cmd_vel, escucha la pose y procesa el teclado."""
+
     def __init__(self):
         super().__init__('turtle_controller')
+
+        # Publicador de velocidad para la tortuga
         self.publisher_ = self.create_publisher(Twist, '/turtle1/cmd_vel', 10)
+
+        # Pose actual de la tortuga (se actualiza por callback)
         self.current_pose = None
-        self.pose_subscriber = self.create_subscription(Pose, '/turtle1/pose', self.pose_callback, 10)
-        self.teleport_client = self.create_client(TeleportAbsolute, '/turtle1/teleport_absolute')
-        
+        self.pose_subscriber = self.create_subscription(
+            Pose,
+            '/turtle1/pose',
+            self.pose_callback,
+            10
+        )
+
+        # Cliente para el servicio de teleport
+        self.teleport_client = self.create_client(
+            TeleportAbsolute,
+            '/turtle1/teleport_absolute'
+        )
+
+        # Hilo independiente para leer teclas sin bloquear rclpy.spin()
         self.keyboard_thread = threading.Thread(target=self.keyboard_listener)
         self.keyboard_thread.daemon = True
         self.keyboard_thread.start()
 
-    def pose_callback(self, msg):
+    def pose_callback(self, msg: Pose):
+        """Guarda la pose actual de la tortuga."""
         self.current_pose = msg
 
-    def get_key(self):
+    def get_key(self) -> str:
+        """
+        Lee una sola tecla en modo raw (sin Enter).
+        Bloquea hasta que el usuario presione algo.
+        """
         fd = sys.stdin.fileno()
         old_settings = termios.tcgetattr(fd)
         try:
@@ -37,6 +67,10 @@ class TurtleController(Node):
         return key
 
     def keyboard_listener(self):
+        """
+        Hilo que escucha continuamente el teclado
+        para ejecutar una letra según la tecla presionada.
+        """
         while rclpy.ok():
             key = self.get_key()
             if key.lower() == 's':
@@ -66,18 +100,21 @@ class TurtleController(Node):
             elif key.lower() == 'l':
                 self.get_logger().info("Dibujando letra L")
                 self.draw_L()
-            elif key == '\x03':  # Ctrl+C para salir
+            elif key == '\x03':  # Ctrl+C
                 break
 
     def teleport(self, x, y, theta):
+        """Usa el servicio teleport_absolute para mover la tortuga a una pose exacta."""
         req = TeleportAbsolute.Request()
         req.x = x
         req.y = y
         req.theta = theta
+
         future = self.teleport_client.call_async(req)
         start_time = time.time()
         while not future.done() and (time.time() - start_time < 2.0):
             time.sleep(0.05)
+
         if future.done():
             try:
                 future.result()
@@ -87,287 +124,311 @@ class TurtleController(Node):
             self.get_logger().error("Teleport no completado a tiempo")
 
     def move_distance(self, distance, speed=2.0):
+        """Mueve la tortuga una distancia usando velocidad lineal constante."""
         duration = abs(distance) / speed
         msg = Twist()
         msg.linear.x = speed if distance >= 0 else -speed
+
         start_time = time.time()
         while time.time() - start_time < duration:
             self.publisher_.publish(msg)
             time.sleep(0.05)
+
+        # detener
         self.publisher_.publish(Twist())
         time.sleep(0.08)
 
     def turn_angle(self, angle, angular_speed=1.0):
+        """Gira la tortuga un ángulo (rad) usando velocidad angular constante."""
         duration = abs(angle) / angular_speed
         msg = Twist()
         msg.angular.z = angular_speed if angle >= 0 else -angular_speed
+
         start_time = time.time()
         while time.time() - start_time < duration:
             self.publisher_.publish(msg)
             time.sleep(0.05)
+
+        # detener giro
         self.publisher_.publish(Twist())
         time.sleep(0.08)
 
     def save_initial_pose(self):
+        """Devuelve la pose actual para restaurarla después de dibujar."""
         if self.current_pose is None:
             self.get_logger().error("Pose no disponible")
             return None
         return (self.current_pose.x, self.current_pose.y, self.current_pose.theta)
 
-    # --- Letras ---  
+    # ───── Letras ─────────────────────────────────────────────────────────────
 
     def draw_S(self):
+        """Dibuja la letra S."""
         initial = self.save_initial_pose()
         if not initial:
             return
         x, y, theta = initial
-        radius = 1.5/2
+
+        radius = 1.5 / 2
         angular_speed = 1.0
         linear_speed = radius * angular_speed
 
-        # Orientar para diriguirse al cuadrante II
+        # inicio del trazo
         self.turn_angle(math.radians(180))
-        # linea para empezar
         self.move_distance(1.5)
-        # Orientar para empezar el trazo superior
         self.turn_angle(math.radians(180))
-        # semicirculo superior (giro izquierda)
+
+        # semicírculo superior
         msg = Twist()
         msg.linear.x = linear_speed
         msg.angular.z = angular_speed
-        start_time = time.time()
         duration = math.pi / angular_speed
+        start_time = time.time()
         while time.time() - start_time < duration:
             self.publisher_.publish(msg)
             time.sleep(0.05)
         self.publisher_.publish(Twist())
-        time.sleep(0.05)
-        # semicirculo inferior (giro derecha)
-        msg = Twist()
-        msg.linear.x = linear_speed
+
+        # semicírculo inferior
         msg.angular.z = -angular_speed
         start_time = time.time()
         while time.time() - start_time < duration:
             self.publisher_.publish(msg)
             time.sleep(0.05)
-        self.publisher_.publish(Twist())
 
+        self.publisher_.publish(Twist())
         self.teleport(x, y, theta)
 
     def draw_A(self):
+        """Dibuja la letra A."""
         initial = self.save_initial_pose()
         if not initial:
             return
         x, y, theta = initial
+
         h = 3.0
-        beta = math.sqrt(18)
-        # Dibujar la A como una diagonal, una recta y una barra "central"
-        # Ir a la base izquierda
+
         self.turn_angle(math.radians(-120))
         self.move_distance(math.sqrt(13))
         self.teleport(x, y, theta)
-        # Recta abajo
+
         self.turn_angle(math.radians(-90))
         self.move_distance(h)
-        # Dibujar la barra "horizontal" de la A
+
         self.turn_angle(math.radians(-120))
         self.move_distance(1.5)
 
         self.teleport(x, y, theta)
 
     def draw_P(self):
+        """Dibuja la letra P."""
         initial = self.save_initial_pose()
         if not initial:
             return
         x, y, theta = initial
+
         h = 3.0
         radius = h / 4
         angular_speed = 1.0
         linear_speed = radius * angular_speed
 
-        # Línea vertical
         self.turn_angle(math.radians(-90))
         self.move_distance(h)
         self.teleport(x, y, theta)
-        # Posicionar para semicirculo superior
-        
-        # semicirculo superior 
+
         msg = Twist()
         msg.linear.x = linear_speed
         msg.angular.z = -angular_speed
         duration = math.pi / angular_speed
         start_time = time.time()
+
         while time.time() - start_time < duration:
             self.publisher_.publish(msg)
             time.sleep(0.05)
-        self.publisher_.publish(Twist())
 
+        self.publisher_.publish(Twist())
         self.teleport(x, y, theta)
 
     def draw_B(self):
+        """Dibuja la letra B."""
         initial = self.save_initial_pose()
         if not initial:
             return
         x, y, theta = initial
+
         h = 3.0
         radius = h / 4
         angular_speed = 1.0
         linear_speed = radius * angular_speed
 
-        # Línea vertical
         self.turn_angle(math.radians(90))
         self.move_distance(h)
-        # Posicionar para semicírculo superior
+
+        # semicírculo superior
         self.turn_angle(math.radians(-90))
-        # semicirculo superior 
         msg = Twist()
         msg.linear.x = linear_speed
         msg.angular.z = -angular_speed
-        start_time = time.time()
         duration = math.pi / angular_speed
+        start_time = time.time()
+
         while time.time() - start_time < duration:
             self.publisher_.publish(msg)
             time.sleep(0.05)
+
         self.publisher_.publish(Twist())
         time.sleep(0.05)
 
-        # Posicionar para semicírculo inferior
+        # semicírculo inferior
         self.turn_angle(math.radians(180))
-
-        # semicirculo inferior 
-        msg = Twist()
-        msg.linear.x = linear_speed
-        msg.angular.z = -angular_speed
         start_time = time.time()
+
         while time.time() - start_time < duration:
             self.publisher_.publish(msg)
             time.sleep(0.05)
-        self.publisher_.publish(Twist())
 
+        self.publisher_.publish(Twist())
         self.teleport(x, y, theta)
 
     def draw_Y(self):
+        """Dibuja la letra Y."""
         initial = self.save_initial_pose()
         if not initial:
             return
         x, y, theta = initial
-        h = 3
-        stem = 1.5
 
-        # Dibujar rama izquierda de la Y (recto)
+        h = 3
+
         self.turn_angle(math.radians(-90))
         self.move_distance(h)
-        # Dibujar rama derecha de la Y
+
         self.turn_angle(math.radians(180))
-        self.move_distance(h/2)
+        self.move_distance(h / 2)
+
         self.turn_angle(math.radians(40))
-        self.move_distance(h/2)
+        self.move_distance(h / 2)
 
         self.teleport(x, y, theta)
-    
+
     def draw_G(self):
+        """Dibuja la letra G."""
         initial = self.save_initial_pose()
         if not initial:
             return
         x, y, theta = initial
+
         radius = 1.5
         angular_speed = 1.0
         linear_speed = radius * angular_speed
 
-        # Posicionar la G
         self.move_distance(1.5)
         self.turn_angle(math.radians(180))
-        # Dibujar casi un círculo (300°) o semicírculo + más para formar la G
-        # Hacemos 270° para dar forma de "G" abierta a la derecha
+
         msg = Twist()
         msg.linear.x = linear_speed
         msg.angular.z = angular_speed
-        duration = (3 * math.pi / 2) / angular_speed  # 270°
+        duration = (3 * math.pi / 2) / angular_speed
         start_time = time.time()
+
         while time.time() - start_time < duration:
             self.publisher_.publish(msg)
             time.sleep(0.05)
+
         self.publisher_.publish(Twist())
         time.sleep(0.05)
 
-        # trazo interno horizontal hacia el centro (la "pata" de la G)
+        # trazo interno
         self.turn_angle(math.radians(90))
         self.move_distance(radius)
 
         self.teleport(x, y, theta)
 
     def draw_D(self):
+        """Dibuja la letra D."""
         initial = self.save_initial_pose()
         if not initial:
             return
         x, y, theta = initial
+
         h = 3.0
         radius = h / 2
         angular_speed = 1.0
         linear_speed = radius * angular_speed
+
         self.turn_angle(math.radians(90))
         self.move_distance(h)
+
         self.turn_angle(math.radians(-90))
-        duration = math.pi / angular_speed
         msg = Twist()
         msg.linear.x = linear_speed
         msg.angular.z = -angular_speed
+        duration = math.pi / angular_speed
         start_time = time.time()
+
         while time.time() - start_time < duration:
             self.publisher_.publish(msg)
             time.sleep(0.05)
+
         self.publisher_.publish(Twist())
         self.teleport(x, y, theta)
 
     def draw_C(self):
+        """Dibuja la letra C."""
         initial = self.save_initial_pose()
         if not initial:
             return
         x, y, theta = initial
+
         radius = 1.5
-        angular_speed = 1.0  # rad/s
-        linear_speed = angular_speed * radius  # Para movimiento circular
-        
-        # Posicionar la C
+        angular_speed = 1.0
+        linear_speed = radius * angular_speed
+
         self.turn_angle(math.radians(180))
-        # Dibujar semicírculo (180°) formando la "C"
+
         msg = Twist()
         msg.linear.x = linear_speed
-        msg.angular.z = angular_speed  # Giro hacia la izquierda
+        msg.angular.z = angular_speed
         duration = math.pi / angular_speed
         start_time = time.time()
+
         while time.time() - start_time < duration:
             self.publisher_.publish(msg)
             time.sleep(0.05)
+
         self.publisher_.publish(Twist())
-        self.teleport(x, y, theta)  # Volver al punto inicial
+        self.teleport(x, y, theta)
 
     def draw_L(self):
+        """Dibuja la letra L."""
         initial = self.save_initial_pose()
         if not initial:
             return
         x, y, theta = initial
+
         h = 3.0
-        # Línea vertical hacia arriba
+
         self.turn_angle(math.radians(-90))
         self.move_distance(h)
-        # Volver y dibujar la base horizontal hacia la derecha
+
         self.turn_angle(math.radians(90))
-        self.move_distance(h/2)
+        self.move_distance(h / 2)
 
         self.teleport(x, y, theta)
-    
+
 
 def main(args=None):
     rclpy.init(args=args)
     node = TurtleController()
+
     try:
         rclpy.spin(node)
     except KeyboardInterrupt:
         node.get_logger().info("Interrupción por teclado")
+
     node.destroy_node()
     rclpy.shutdown()
 
+
 if __name__ == '__main__':
     main()
-
+```
