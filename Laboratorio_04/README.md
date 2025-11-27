@@ -4,7 +4,130 @@
 * Brayan Yesid Santos Gonzalez
 
 ## Documentación 
-*Documente la metodologia (procedimiento realizado), los resultados (desiciones), analisis y conclusiones (funcionamiento general)*
+
+# *Laboratorio_04*
+* Sergio Avellaneda Piñeros  
+* David Santiago Cuellar Lopez  
+* Brayan Yesid Santos Gonzalez  
+
+## *Documentación*
+
+# *Metodología, Resultados, Análisis y Conclusiones*
+
+## *Metodología*
+
+El desarrollo del laboratorio se realizó en dos etapas principales: control manual y dibujo automático de letras.
+
+### *1. Control manual de la tortuga*
+
+1. Se instaló y configuró ROS 2 Humble junto con el simulador Turtlesim.  
+2. En una terminal se ejecutó el simulador usando:
+
+   ```bash
+   ros2 run turtlesim turtlesim_node
+   ```
+
+3. Se creó el paquete encargado del control manual:
+
+   ```bash
+   cd ~/ros2_ws/src
+   ros2 pkg create --build-type ament_python my_turtle_controller
+   ```
+
+4. Dentro del paquete se implementó el archivo `move_turtle.py`, que incluye:
+   - Importación del mensaje `Twist`.
+   - Función para lectura de teclado en modo raw.
+   - La clase `TurtleMover`, con un temporizador que ejecuta `control_loop()`.
+   - Publicación de mensajes al tópico `/turtle1/cmd_vel` según las teclas presionadas.
+
+5. Se compiló el paquete:
+
+   ```bash
+   cd ~/ros2_ws
+   colcon build
+   source install/setup.bash
+   ```
+
+6. Se ejecutó el nodo:
+
+   ```bash
+   ros2 run my_turtle_controller move_turtle
+   ```
+
+---
+
+### *2. Dibujo automático de letras personalizadas*
+
+1. Se creó un segundo script Python que implementa un nodo encargado de dibujar letras mediante trayectorias programadas.
+2. Se desarrolló la clase `TurtleController`, la cual:
+   - Publica comandos `Twist` para mover la tortuga.
+   - Se suscribe al tópico `/turtle1/pose`.
+   - Utiliza el servicio `/turtle1/teleport_absolute` para regresar al punto inicial.
+   - Maneja la lectura del teclado en un hilo independiente.
+   - Incluye funciones auxiliares para movimientos lineales, giros y teletransportación.
+3. Se asignaron las letras a los integrantes del grupo:
+   - **Sergio Avellaneda Piñeros:** S, A, P  
+   - **David Santiago Cuéllar López:** D, C  
+   - **Brayan Yesid Santos González:** B, Y, G, L  
+4. Cada letra se construyó combinando desplazamientos rectos, giros y arcos generados por velocidad angular + lineal.
+5. Una vez completada cada letra, la tortuga vuelve automáticamente a su pose inicial usando teletransportación para mantener orden y simetría en el dibujo.
+
+---
+
+## *Resultados*
+
+- El control manual mediante teclado funcionó de forma correcta y estable.  
+- La lectura en modo raw permitió captar teclas sin necesidad de presionar Enter.  
+- El nodo `TurtleController` logró:
+  - Publicar velocidades al tópico `/cmd_vel`.  
+  - Obtener la pose actual de la tortuga en tiempo real.  
+  - Teletransportar la tortuga con precisión para reiniciar la posición.  
+  - Dibujar letras completas al presionar una tecla asignada.  
+- Todas las letras implementadas fueron dibujadas con éxito.  
+- Se mantuvo un orden visual claro gracias al teletransporte entre figuras.  
+- Se integraron adecuadamente conceptos clave de ROS 2:  
+  publicadores, suscriptores, servicios, concurrencia y control basado en temporización.
+
+---
+
+## *Análisis*
+
+### *1. Comunicación por tópicos*
+El uso del mensaje `Twist` permitió observar:
+- La asincronía entre nodos productores y consumidores.  
+- La necesidad de publicar constantemente mientras se desea mantener velocidad.  
+- El funcionamiento distribuido del modelo de comunicación de ROS 2.
+
+### *2. Servicios*
+El servicio `TeleportAbsolute` evidenció:
+- Cómo se diferencian acciones puntuales (servicios) de flujos continuos (tópicos).  
+- El uso de `call_async()` para ejecutar servicios sin bloquear el nodo.  
+- La verificación del estado de la llamada mediante `future.done()`.
+
+### *3. Concurrencia*
+La lectura del teclado en un hilo independiente permitió:
+- Evitar bloqueos en `rclpy.spin()`.  
+- Mantener interacción en tiempo real con la simulación.  
+- Ejecutar dibujo y lectura de entrada sin interferencias.
+
+### *4. Cinemática de movimiento*
+Las figuras fueron construidas combinando:
+- Desplazamientos rectos con velocidad lineal constante.  
+- Giros con velocidad angular constante.  
+- Arcos circulares mediante velocidad lineal + velocidad angular.  
+
+Esto permitió comprender mejor la cinemática de un robot diferencial y su relación con trayectorias complejas.
+
+---
+
+## *Conclusiones*
+
+- Se lograron comprender los conceptos fundamentales del sistema ROS 2: nodos, tópicos, mensajes, servicios, temporización y concurrencia.
+- Se implementó correctamente un nodo para controlar la tortuga manualmente y un nodo avanzado para dibujar letras mediante trayectorias definidas.
+- El laboratorio permitió reforzar la estructura de comunicación distribuida de ROS 2, especialmente la interacción entre publicadores y servicios.
+- Todas las letras programadas por los integrantes del grupo se dibujaron correctamente, demostrando una adecuada manipulación de movimiento diferencial.
+- El uso de teletransportación proporcionó limpieza y organización en los resultados visuales.
+- El sistema final operó de manera continua y estable, integrando publicación de comandos, lectura de pose, teletransportación y entrada por teclado en tiempo real.
 
 1
 <img width="1322" height="636" alt="image" src="https://github.com/user-attachments/assets/b338ace6-9d5a-4234-9a45-81bd99236fc5" />
