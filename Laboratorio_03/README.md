@@ -114,5 +114,5 @@ flowchart TD
 Para este apartado se puede encontrar el código utilizado en la carpeta *"Código"*.
 
 ## Video de simulación e implementación
-Para un mayor detalle de lo realizado, se puede ver el video de la simulación [aquí](https://youtu.be/SHn7KBpfFbk) y el de la implementación física [aquí](https://www.youtube.com/watch?v=a09duI1kMos).
+Para un mayor detalle de lo realizado, se puede ver el video de la simulación [aquí](https://youtu.be/SHn7KBpfFbk) y el de la implementación física [aquí](https://www.canva.com/design/DAG52PwwrSc/ABfLgW2x9ddxp0A39mlgMA/watch?utm_content=DAG52PwwrSc&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hf002c1d9d1).
 
