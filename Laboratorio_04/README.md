@@ -122,12 +122,12 @@ Esto permitió comprender mejor la cinemática de un robot diferencial y su rela
 
 
 
-
-
-
-
-
 ## Diagrama de flujo
+<img width="221" height="509" alt="image" src="https://github.com/user-attachments/assets/f79bc965-d0a2-4c94-aab9-0bbd01ff7bcb" />
+<img width="1090" height="414" alt="image" src="https://github.com/user-attachments/assets/0981b282-3152-4842-8767-e02fa083d8ea" />
+<img width="1090" height="401" alt="image" src="https://github.com/user-attachments/assets/1d310712-ed65-4d40-8d79-710cadb838ff" />
+<img width="1126" height="412" alt="image" src="https://github.com/user-attachments/assets/bfe601c9-2e80-40b3-856f-72d342e776f0" />
+
 
 ## Codigo
 
