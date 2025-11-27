@@ -74,18 +74,16 @@ El desarrollo del laboratorio se realizó en dos etapas principales: control man
 
 ## Resultados
 
-- El control manual mediante teclado funcionó de forma correcta y estable.  
-- La lectura en modo raw permitió captar teclas sin necesidad de presionar Enter.  
-- El nodo `TurtleController` logró:
-  - Publicar velocidades al tópico `/cmd_vel`.  
-  - Obtener la pose actual de la tortuga en tiempo real.  
-  - Teletransportar la tortuga con precisión para reiniciar la posición.  
-  - Dibujar letras completas al presionar una tecla asignada.  
-- Todas las letras implementadas fueron dibujadas con éxito.  
-- Se mantuvo un orden visual claro gracias al teletransporte entre figuras.  
-- Se integraron adecuadamente conceptos clave de ROS 2:  
-  publicadores, suscriptores, servicios, concurrencia y control basado en temporización.
+1
+<img width="1322" height="636" alt="image" src="https://github.com/user-attachments/assets/b338ace6-9d5a-4234-9a45-81bd99236fc5" />
 
+2
+
+<img width="1251" height="622" alt="image" src="https://github.com/user-attachments/assets/c61cbc42-3b2c-49a3-9f64-85b66307eda4" />
+
+3
+
+<img width="1269" height="630" alt="image" src="https://github.com/user-attachments/assets/c31c1355-2dd6-4b9e-9223-35db81ba6957" />
 ---
 
 ## Análisis
@@ -128,16 +126,7 @@ Esto permitió comprender mejor la cinemática de un robot diferencial y su rela
 - El sistema final operó de manera continua y estable, integrando publicación de comandos, lectura de pose, teletransportación y entrada por teclado en tiempo real.
 
 
-1
-<img width="1322" height="636" alt="image" src="https://github.com/user-attachments/assets/b338ace6-9d5a-4234-9a45-81bd99236fc5" />
 
-2
-
-<img width="1251" height="622" alt="image" src="https://github.com/user-attachments/assets/c61cbc42-3b2c-49a3-9f64-85b66307eda4" />
-
-3
-
-<img width="1269" height="630" alt="image" src="https://github.com/user-attachments/assets/c31c1355-2dd6-4b9e-9223-35db81ba6957" />
 
 
 
