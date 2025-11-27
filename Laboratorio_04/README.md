@@ -5,9 +5,9 @@
 
 ## Documentación
 
-# Metodología, Resultados, Análisis y Conclusiones
+## Metodología, Resultados, Análisis y Conclusiones
 
-## Metodología
+### Metodología
 
 El desarrollo del laboratorio se realizó en dos etapas principales: control manual y dibujo automático de letras.
 
