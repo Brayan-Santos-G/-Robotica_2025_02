@@ -6,6 +6,21 @@
 ## Documentación 
 *Documente la metodologia (procedimiento realizado), los resultados (desiciones), analisis y conclusiones (funcionamiento general)*
 
+1
+<img width="1322" height="636" alt="image" src="https://github.com/user-attachments/assets/b338ace6-9d5a-4234-9a45-81bd99236fc5" />
+
+2
+
+<img width="1251" height="622" alt="image" src="https://github.com/user-attachments/assets/c61cbc42-3b2c-49a3-9f64-85b66307eda4" />
+
+3
+
+<img width="1269" height="630" alt="image" src="https://github.com/user-attachments/assets/c31c1355-2dd6-4b9e-9223-35db81ba6957" />
+
+
+
+
+
 ## Diagrama de flujo
 
 ## Codigo
