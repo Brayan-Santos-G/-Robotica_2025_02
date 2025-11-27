@@ -47,7 +47,7 @@ El desarrollo del laboratorio se realizó en dos etapas principales: control man
    ros2 run my_turtle_controller move_turtle
    ```
 
----
+
 
 ### 2. Dibujo automático de letras personalizadas
 
@@ -65,7 +65,7 @@ El desarrollo del laboratorio se realizó en dos etapas principales: control man
 4. Cada letra se construyó combinando desplazamientos rectos, giros y arcos generados por velocidad angular + lineal.
 5. Una vez completada cada letra, la tortuga vuelve automáticamente a su pose inicial usando teletransportación para mantener orden y simetría en el dibujo.
 
----
+
 
 ## Resultados
 
@@ -79,7 +79,8 @@ El desarrollo del laboratorio se realizó en dos etapas principales: control man
 3
 
 <img width="1269" height="630" alt="image" src="https://github.com/user-attachments/assets/c31c1355-2dd6-4b9e-9223-35db81ba6957" />
----
+
+
 
 ## Análisis
 
@@ -109,7 +110,7 @@ Las figuras fueron construidas combinando:
 
 Esto permitió comprender mejor la cinemática de un robot diferencial y su relación con trayectorias complejas.
 
----
+
 
 ## Conclusiones
 
