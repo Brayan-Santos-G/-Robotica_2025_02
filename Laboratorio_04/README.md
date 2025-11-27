@@ -1,9 +1,4 @@
 # Laboratorio_04
-* Sergio Avellaneda Piñeros
-* David Santiago Cuellar Lopez
-* Brayan Yesid Santos Gonzalez
-
-# Laboratorio_04
 * Sergio Avellaneda Piñeros  
 * David Santiago Cuellar Lopez  
 * Brayan Yesid Santos Gonzalez  
