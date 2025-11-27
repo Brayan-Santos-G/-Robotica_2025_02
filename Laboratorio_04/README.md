@@ -3,22 +3,20 @@
 * David Santiago Cuellar Lopez
 * Brayan Yesid Santos Gonzalez
 
-## Documentación 
-
-# *Laboratorio_04*
+# Laboratorio_04
 * Sergio Avellaneda Piñeros  
 * David Santiago Cuellar Lopez  
 * Brayan Yesid Santos Gonzalez  
 
-## *Documentación*
+## Documentación
 
-# *Metodología, Resultados, Análisis y Conclusiones*
+# Metodología, Resultados, Análisis y Conclusiones
 
-## *Metodología*
+## Metodología
 
 El desarrollo del laboratorio se realizó en dos etapas principales: control manual y dibujo automático de letras.
 
-### *1. Control manual de la tortuga*
+### 1. Control manual de la tortuga
 
 1. Se instaló y configuró ROS 2 Humble junto con el simulador Turtlesim.  
 2. En una terminal se ejecutó el simulador usando:
@@ -56,7 +54,7 @@ El desarrollo del laboratorio se realizó en dos etapas principales: control man
 
 ---
 
-### *2. Dibujo automático de letras personalizadas*
+### 2. Dibujo automático de letras personalizadas
 
 1. Se creó un segundo script Python que implementa un nodo encargado de dibujar letras mediante trayectorias programadas.
 2. Se desarrolló la clase `TurtleController`, la cual:
@@ -74,7 +72,7 @@ El desarrollo del laboratorio se realizó en dos etapas principales: control man
 
 ---
 
-## *Resultados*
+## Resultados
 
 - El control manual mediante teclado funcionó de forma correcta y estable.  
 - La lectura en modo raw permitió captar teclas sin necesidad de presionar Enter.  
@@ -90,27 +88,27 @@ El desarrollo del laboratorio se realizó en dos etapas principales: control man
 
 ---
 
-## *Análisis*
+## Análisis
 
-### *1. Comunicación por tópicos*
+### 1. Comunicación por tópicos
 El uso del mensaje `Twist` permitió observar:
 - La asincronía entre nodos productores y consumidores.  
 - La necesidad de publicar constantemente mientras se desea mantener velocidad.  
 - El funcionamiento distribuido del modelo de comunicación de ROS 2.
 
-### *2. Servicios*
+### 2. Servicios
 El servicio `TeleportAbsolute` evidenció:
 - Cómo se diferencian acciones puntuales (servicios) de flujos continuos (tópicos).  
 - El uso de `call_async()` para ejecutar servicios sin bloquear el nodo.  
 - La verificación del estado de la llamada mediante `future.done()`.
 
-### *3. Concurrencia*
+### 3. Concurrencia
 La lectura del teclado en un hilo independiente permitió:
 - Evitar bloqueos en `rclpy.spin()`.  
 - Mantener interacción en tiempo real con la simulación.  
 - Ejecutar dibujo y lectura de entrada sin interferencias.
 
-### *4. Cinemática de movimiento*
+### 4. Cinemática de movimiento
 Las figuras fueron construidas combinando:
 - Desplazamientos rectos con velocidad lineal constante.  
 - Giros con velocidad angular constante.  
@@ -120,7 +118,7 @@ Esto permitió comprender mejor la cinemática de un robot diferencial y su rela
 
 ---
 
-## *Conclusiones*
+## Conclusiones
 
 - Se lograron comprender los conceptos fundamentales del sistema ROS 2: nodos, tópicos, mensajes, servicios, temporización y concurrencia.
 - Se implementó correctamente un nodo para controlar la tortuga manualmente y un nodo avanzado para dibujar letras mediante trayectorias definidas.
@@ -128,6 +126,7 @@ Esto permitió comprender mejor la cinemática de un robot diferencial y su rela
 - Todas las letras programadas por los integrantes del grupo se dibujaron correctamente, demostrando una adecuada manipulación de movimiento diferencial.
 - El uso de teletransportación proporcionó limpieza y organización en los resultados visuales.
 - El sistema final operó de manera continua y estable, integrando publicación de comandos, lectura de pose, teletransportación y entrada por teclado en tiempo real.
+
 
 1
 <img width="1322" height="636" alt="image" src="https://github.com/user-attachments/assets/b338ace6-9d5a-4234-9a45-81bd99236fc5" />
