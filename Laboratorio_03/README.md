@@ -110,7 +110,7 @@ flowchart TD
 
 ![alt text](Imagenes/Mapa.png)
 
-## Código en Python
+## Código 
 Para este apartado se puede encontrar el código utilizado en la carpeta *"Código"*.
 
 ## Video de simulación e implementación
