@@ -1,1 +1,163 @@
+'-----------------------------------------
+' Trayectoria de dos huevos en cubeta 6x5
+' Movimientos tipo caballo de ajedrez
+' Robot: EPSON SCARA T3
+'-----------------------------------------
+
+' Arreglos para almacenar la trayectoria de cada huevo
+' Índices 0..14 (15 posiciones por huevo)
+Global Integer H1Col(14)
+Global Integer H1Row(14)
+Global Integer H2Col(14)
+Global Integer H2Row(14)
+' OJO: ya no hay Global Integer paso
+
+'----------------------------------------
+' Lógica de la pinza (ajusta a tu hardware)
+'----------------------------------------
+Function Grip_On       ' Cerrar pinza
+    Off Out_9          ' Ejemplo: lógica negativa en Out_9
+Fend
+
+Function Grip_Off      ' Abrir pinza
+    On Out_9
+Fend
+
+'----------------------------------------
+' Inicializa las trayectorias de los dos huevos
+'----------------------------------------
+Function InitTrayectorias
+
+    ' ---- Huevo 1: 15 posiciones (0..14) ----
+    H1Col(0) = 1
+    H1Row(0) = 1
+    H1Col(1) = 2
+    H1Row(1) = 3
+    H1Col(2) = 1
+    H1Row(2) = 5
+    H1Col(3) = 3
+    H1Row(3) = 4
+    H1Col(4) = 5
+    H1Row(4) = 5
+    H1Col(5) = 6
+    H1Row(5) = 3
+    H1Col(6) = 5
+    H1Row(6) = 1
+    H1Col(7) = 3
+    H1Row(7) = 2
+    H1Col(8) = 2
+    H1Row(8) = 4
+    H1Col(9) = 1
+    H1Row(9) = 2
+    H1Col(10) = 3
+    H1Row(10) = 1
+    H1Col(11) = 4
+    H1Row(11) = 3
+    H1Col(12) = 6
+    H1Row(12) = 2
+    H1Col(13) = 5
+    H1Row(13) = 4
+    H1Col(14) = 3
+    H1Row(14) = 5
+
+    ' ---- Huevo 2: 15 posiciones (0..14) ----
+    H2Col(0) = 6
+    H2Row(0) = 5
+    H2Col(1) = 5
+    H2Row(1) = 3
+    H2Col(2) = 6
+    H2Row(2) = 1
+    H2Col(3) = 4
+    H2Row(3) = 2
+    H2Col(4) = 2
+    H2Row(4) = 1
+    H2Col(5) = 1
+    H2Row(5) = 3
+    H2Col(6) = 2
+    H2Row(6) = 5
+    H2Col(7) = 4
+    H2Row(7) = 4
+    H2Col(8) = 5
+    H2Row(8) = 2
+    H2Col(9) = 6
+    H2Row(9) = 4
+    H2Col(10) = 4
+    H2Row(10) = 5
+    H2Col(11) = 3
+    H2Row(11) = 3
+    H2Col(12) = 1
+    H2Row(12) = 4
+    H2Col(13) = 2
+    H2Row(13) = 2
+    H2Col(14) = 4
+    H2Row(14) = 1
+
+Fend
+
+'----------------------------------------
+' Movimiento básico entre casillas de pallet
+'----------------------------------------
+Function MoverHuevo(fromCol As Integer, fromRow As Integer, toCol As Integer, toRow As Integer)
+
+    Go Pallet(1, fromCol, fromRow)
+
+    Move Here +Z(-50)
+    Call Grip_On
+    Move Here +Z(50)
+
+    Go Pallet(1, toCol, toRow)
+
+    Move Here +Z(-50)
+    Call Grip_Off
+    Move Here +Z(50)
+
+Fend
+
+'----------------------------------------
+Function MoverHuevo1(paso As Integer)
+    Integer cFrom, rFrom, cTo, rTo
+
+    cFrom = H1Col(paso - 1)
+    rFrom = H1Row(paso - 1)
+    cTo = H1Col(paso)
+    rTo = H1Row(paso)
+
+    Call MoverHuevo(cFrom, rFrom, cTo, rTo)
+Fend
+
+'----------------------------------------
+Function MoverHuevo2(paso As Integer)
+    Integer cFrom, rFrom, cTo, rTo
+    
+    cFrom = H2Col(paso - 1)
+    rFrom = H2Row(paso - 1)
+    cTo = H2Col(paso)
+    rTo = H2Row(paso)
+
+    Call MoverHuevo(cFrom, rFrom, cTo, rTo)
+Fend
+
+'----------------------------------------
+Function main
+    Integer paso          ' ahora paso es local, no global
+
+    Motor On
+    Power Low
+    Accel 100, 100 '% 
+    Speed 100 '% 
+
+    Call Grip_Off
+
+    Pallet 1, Origen, PuntoX, PuntoY, 6, 5
+
+    Call InitTrayectorias
+
+    Home
+
+    For paso = 1 To 29
+        Call MoverHuevo1(paso)
+        Call MoverHuevo2(paso)
+    Next
+
+Fend
 
