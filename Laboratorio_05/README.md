@@ -3,17 +3,15 @@
 * David Santiago Cuellar Lopez  
 * Brayan Yesid Santos Gonzalez  
 
-## Descripción detallada de la solución planteada
+## Descripción de la solución planteada
 
-## Diagrama de flujo de acciones del robot (Mermaid)
+## Diagrama de flujo de acciones del robot 
 
-## Plano de planta de la ubicación de cada uno de los elementos
+## Plano de planta 
 
 ## Descripción de las funciones utilizadas
 
 ## Código del script utilizado para el desarrollo de la práctica
-
-## Video del brazo alcanzando cada posición solicitada
 
 ## Videos
 
