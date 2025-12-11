@@ -16,8 +16,8 @@
 ## Videos
 
 - **Demostración de uso de la interfaz de usuario.**  
-  Ver video [aquí]().
+  Ver video [aquí](https://youtu.be/2warnZ_yuoM).
 
 - **Uso de la interfaz de usuario + Gráfica digital de las poses vs la fotografía del brazo real.**  
-  Ver video [aquí]().
+  Ver video [aquí](https://youtu.be/8Tcm-70TWkw).
 
