@@ -113,7 +113,7 @@ graph TD
 
 ```
 ## Plano de planta 
-![Vista superior de la planta](./Imgenes/Robot_Pincher.png)
+![Vista superior de la planta](./Imagenes/Robot_Pincher.png)
 
 
 ## Descripción de las funciones utilizadas
